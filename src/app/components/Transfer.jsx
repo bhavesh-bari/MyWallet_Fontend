@@ -164,16 +164,16 @@ export default function TransferMoney() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
         {/* Left Form / Success View (Spans 2 columns) */}
-        <div className="md:col-span-2 bg-white border border-slate-200/80 rounded-2xl p-6 shadow-sm">
+        <div className="md:col-span-2 bg-slate-900 border border-slate-800/80 rounded-2xl p-6 shadow-xl">
           {!response ? (
             <form onSubmit={handleInitiateTransfer} className="space-y-5">
-              <h2 className="text-lg font-bold text-slate-900 flex items-center gap-2">
+              <h2 className="text-lg font-bold text-white flex items-center gap-2">
                 <ArrowRightLeft className="w-5 h-5 text-indigo-600" /> Transaction Details
               </h2>
 
               {/* Sender Account */}
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1">
+                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">
                   Sender Account
                 </label>
                 <div className="relative">
@@ -183,7 +183,7 @@ export default function TransferMoney() {
                     value={formData.sender}
                     onChange={handleInputChange}
                     placeholder="e.g. ACC109"
-                    className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-900 text-sm font-mono focus:ring-2 focus:ring-indigo-500 focus:bg-white outline-none transition"
+                    className="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 text-sm font-mono focus:ring-2 focus:ring-indigo-500 focus:bg-slate-900 outline-none transition"
                     required
                   />
                 </div>
@@ -191,7 +191,7 @@ export default function TransferMoney() {
 
               {/* Receiver Account */}
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1">
+                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">
                   Receiver Account Number
                 </label>
                 <input
@@ -200,14 +200,14 @@ export default function TransferMoney() {
                   value={formData.reciver}
                   onChange={handleInputChange}
                   placeholder="e.g. ACC412"
-                  className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-900 text-sm font-mono focus:ring-2 focus:ring-indigo-500 focus:bg-white outline-none transition"
+                  className="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 text-sm font-mono focus:ring-2 focus:ring-indigo-500 focus:bg-slate-900 outline-none transition"
                   required
                 />
               </div>
 
               {/* Transfer Amount */}
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1">
+                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">
                   Amount (₹)
                 </label>
                 <div className="relative">
@@ -219,7 +219,7 @@ export default function TransferMoney() {
                     value={formData.amount}
                     onChange={handleInputChange}
                     placeholder="0.00"
-                    className="w-full pl-8 pr-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-slate-900 font-semibold text-lg focus:ring-2 focus:ring-indigo-500 focus:bg-white outline-none transition"
+                    className="w-full pl-8 pr-4 py-3 bg-slate-950 border border-slate-700 rounded-xl text-slate-100 font-semibold text-lg focus:ring-2 focus:ring-indigo-500 focus:bg-slate-900 outline-none transition"
                     required
                   />
                 </div>
@@ -230,7 +230,7 @@ export default function TransferMoney() {
                 <motion.div
                   initial={{ opacity: 0, y: -5 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="p-3 bg-rose-50 border border-rose-200 rounded-xl flex items-start gap-2.5 text-rose-700 text-xs font-medium"
+                  className="p-3 bg-rose-500/10 border border-rose-500/20 rounded-xl flex items-start gap-2.5 text-rose-300 text-xs font-medium"
                 >
                   <AlertCircle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
                   <div>{error}</div>
@@ -253,30 +253,30 @@ export default function TransferMoney() {
               animate={{ opacity: 1, scale: 1 }}
               className="space-y-6 py-2"
             >
-              <div className="flex items-center gap-3 text-emerald-600">
+              <div className="flex items-center gap-3 text-emerald-400">
                 <CheckCircle2 className="w-8 h-8 shrink-0" />
                 <div>
-                  <h3 className="text-lg font-bold text-slate-900">{response.message}</h3>
-                  <p className="text-xs text-slate-500">{new Date(response.date).toLocaleString()}</p>
+                  <h3 className="text-lg font-bold text-white">{response.message}</h3>
+                  <p className="text-xs text-slate-400">{new Date(response.date).toLocaleString()}</p>
                 </div>
               </div>
 
-              <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-3 text-xs">
-                <div className="flex justify-between border-b border-slate-200/80 pb-2">
-                  <span className="text-slate-500">Transaction Reference</span>
-                  <span className="font-mono font-bold text-slate-800">{response.transactionRef}</span>
+              <div className="bg-slate-950/70 border border-slate-800 rounded-xl p-4 space-y-3 text-xs">
+                <div className="flex justify-between border-b border-slate-800 pb-2">
+                  <span className="text-slate-400">Transaction Reference</span>
+                  <span className="font-mono font-bold text-slate-200">{response.transactionRef}</span>
                 </div>
-                <div className="flex justify-between border-b border-slate-200/80 pb-2">
-                  <span className="text-slate-500">Sender Account</span>
-                  <span className="font-mono text-slate-800">{response.senderAccount}</span>
+                <div className="flex justify-between border-b border-slate-800 pb-2">
+                  <span className="text-slate-400">Sender Account</span>
+                  <span className="font-mono text-slate-200">{response.senderAccount}</span>
                 </div>
-                <div className="flex justify-between border-b border-slate-200/80 pb-2">
-                  <span className="text-slate-500">Receiver Account</span>
-                  <span className="font-mono text-slate-800">{response.receiverAccount}</span>
+                <div className="flex justify-between border-b border-slate-800 pb-2">
+                  <span className="text-slate-400">Receiver Account</span>
+                  <span className="font-mono text-slate-200">{response.receiverAccount}</span>
                 </div>
                 <div className="flex justify-between pt-1 text-sm font-bold">
-                  <span className="text-slate-700">Amount Transferred</span>
-                  <span className="text-emerald-600">₹{parseFloat(response.amount).toFixed(2)}</span>
+                  <span className="text-slate-300">Amount Transferred</span>
+                  <span className="text-emerald-400">₹{parseFloat(response.amount).toFixed(2)}</span>
                 </div>
               </div>
 
@@ -291,22 +291,22 @@ export default function TransferMoney() {
         </div>
 
         {/* Right Information Panel */}
-        <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-6 space-y-4 text-xs text-slate-600">
-          <h3 className="font-bold text-slate-900 text-sm flex items-center gap-2">
-            <Lock className="w-4 h-4 text-slate-700" /> Backend Protections
+        <div className="bg-slate-900/70 border border-slate-800/80 rounded-2xl p-6 space-y-4 text-xs text-slate-400">
+          <h3 className="font-bold text-white text-sm flex items-center gap-2">
+            <Lock className="w-4 h-4 text-slate-300" /> Backend Protections
           </h3>
           <ul className="space-y-2.5 list-disc pl-4 leading-relaxed">
             <li>
-              <strong className="text-slate-800">ReentrantLocking:</strong> Orders account locks deterministically based on account numbers to avoid deadlocks.
+              <strong className="text-slate-200">ReentrantLocking:</strong> Orders account locks deterministically based on account numbers to avoid deadlocks.
             </li>
             <li>
-              <strong className="text-slate-800">Atomic Transactions:</strong> Uses Spring <code className="bg-slate-200/60 px-1 py-0.5 rounded text-[10px]">TransactionTemplate</code> for money movements.
+              <strong className="text-slate-200">Atomic Transactions:</strong> Uses Spring <code className="bg-slate-800 px-1 py-0.5 rounded text-[10px]">TransactionTemplate</code> for money movements.
             </li>
             <li>
-              <strong className="text-slate-800">BCrypt PIN Verification:</strong> Your 4-digit PIN is verified securely before balances change.
+              <strong className="text-slate-200">BCrypt PIN Verification:</strong> Your 4-digit PIN is verified securely before balances change.
             </li>
             <li>
-              <strong className="text-slate-800">Idempotent Requests:</strong> Retrying with the same key returns the existing transaction response without double-debiting.
+              <strong className="text-slate-200">Idempotent Requests:</strong> Retrying with the same key returns the existing transaction response without double-debiting.
             </li>
           </ul>
         </div>
@@ -320,24 +320,24 @@ export default function TransferMoney() {
               initial={{ opacity: 0, scale: 0.9, y: 10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 10 }}
-              className="bg-white border border-slate-200 w-full max-w-sm rounded-2xl p-6 shadow-2xl relative"
+              className="bg-slate-900 border border-slate-700 w-full max-w-sm rounded-2xl p-6 shadow-2xl relative text-slate-100"
             >
               <button
                 onClick={() => setIsPinModalOpen(false)}
-                className="absolute right-4 top-4 text-slate-400 hover:text-slate-600 p-1"
+                className="absolute right-4 top-4 text-slate-400 hover:text-white p-1"
               >
                 <X className="w-5 h-5" />
               </button>
 
               <div className="text-center space-y-2 mb-6">
-                <div className="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-full flex items-center justify-center mx-auto">
+                <div className="w-12 h-12 bg-indigo-500/10 text-indigo-300 rounded-full flex items-center justify-center mx-auto">
                   <Lock className="w-6 h-6" />
                 </div>
-                <h3 className="text-lg font-bold text-slate-900">Authorize Transfer</h3>
-                <p className="text-xs text-slate-500">
-                  Transferring <span className="font-bold text-slate-800">₹{formData.amount}</span> from{' '}
-                  <span className="font-mono text-slate-800">{formData.sender}</span> to{' '}
-                  <span className="font-mono text-slate-800">{formData.reciver}</span>.
+                <h3 className="text-lg font-bold text-white">Authorize Transfer</h3>
+                <p className="text-xs text-slate-400">
+                  Transferring                   <span className="font-bold text-slate-100">₹{formData.amount}</span> from{' '}
+                  <span className="font-mono text-slate-100">{formData.sender}</span> to{' '}
+                  <span className="font-mono text-slate-100">{formData.reciver}</span>.
                 </p>
               </div>
 
@@ -348,8 +348,8 @@ export default function TransferMoney() {
                     <div
                       key={index}
                       className={`w-10 h-12 border-2 rounded-xl flex items-center justify-center text-lg font-bold transition ${pin[index]
-                        ? 'border-indigo-600 bg-indigo-50/50 text-indigo-900'
-                        : 'border-slate-200 bg-slate-50'
+                        ? 'border-indigo-500 bg-indigo-500/10 text-indigo-200'
+                        : 'border-slate-700 bg-slate-950'
                         }`}
                     >
                       {pin[index] ? '•' : ''}
@@ -363,7 +363,7 @@ export default function TransferMoney() {
                   value={pin}
                   onChange={(e) => setPin(e.target.value.replace(/\D/g, ''))}
                   placeholder="Enter 4-digit PIN"
-                  className="w-full text-center tracking-widest text-lg font-mono py-2 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
+                  className="w-full text-center tracking-widest text-lg font-mono py-2 bg-slate-950 text-slate-100 border border-slate-700 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                   autoFocus
                 />
 

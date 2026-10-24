@@ -1,10 +1,12 @@
 import React from 'react'
 import Profile from '../components/Profile';
+import BankingPageLayout from '../components/BankingPageLayout';
+
 function page() {
     return (
-        <div>
+        <BankingPageLayout>
             <Profile />
-        </div>
+        </BankingPageLayout>
     )
 }
 

@@ -1,10 +1,12 @@
 import React from 'react'
 import Deposit from '../components/Deposite';
+import BankingPageLayout from '../components/BankingPageLayout';
+
 function page() {
     return (
-        <div>
+        <BankingPageLayout>
             <Deposit />
-        </div>
+        </BankingPageLayout>
     )
 }
 

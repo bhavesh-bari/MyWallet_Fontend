@@ -1,10 +1,12 @@
 import React from 'react'
 import Balance from '../components/Balance';
+import BankingPageLayout from '../components/BankingPageLayout';
+
 function page() {
     return (
-        <div>
+        <BankingPageLayout>
             <Balance />
-        </div>
+        </BankingPageLayout>
     )
 }
 

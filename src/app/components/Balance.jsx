@@ -110,16 +110,16 @@ export default function CheckBalance() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
                 {/* Left Form / Result View (Spans 2 columns) */}
-                <div className="md:col-span-2 bg-white border border-slate-200/80 rounded-2xl p-6 shadow-sm">
+                <div className="md:col-span-2 bg-slate-900 border border-slate-800/80 rounded-2xl p-6 shadow-xl">
                     {!balanceResult ? (
                         <form onSubmit={handleInitiateBalanceCheck} className="space-y-5">
-                            <h2 className="text-lg font-bold text-slate-900 flex items-center gap-2">
+                            <h2 className="text-lg font-bold text-white flex items-center gap-2">
                                 <Wallet className="w-5 h-5 text-indigo-600" /> Inquiry Details
                             </h2>
 
                             {/* Account Number */}
                             <div>
-                                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1">
+                                <label className="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">
                                     Account Number
                                 </label>
                                 <div className="relative">
@@ -131,7 +131,7 @@ export default function CheckBalance() {
                                             if (error) setError(null);
                                         }}
                                         placeholder="e.g. ACC109"
-                                        className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-900 text-sm font-mono focus:ring-2 focus:ring-indigo-500 focus:bg-white outline-none transition"
+                                        className="w-full bg-slate-950 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 text-sm font-mono focus:ring-2 focus:ring-indigo-500 focus:bg-slate-900 outline-none transition"
                                         required
                                     />
                                 </div>
@@ -142,7 +142,7 @@ export default function CheckBalance() {
                                 <motion.div
                                     initial={{ opacity: 0, y: -5 }}
                                     animate={{ opacity: 1, y: 0 }}
-                                    className="p-3 bg-rose-50 border border-rose-200 rounded-xl flex items-start gap-2.5 text-rose-700 text-xs font-medium"
+                                    className="p-3 bg-rose-500/10 border border-rose-500/20 rounded-xl flex items-start gap-2.5 text-rose-300 text-xs font-medium"
                                 >
                                     <AlertCircle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
                                     <div>{error}</div>
@@ -168,18 +168,18 @@ export default function CheckBalance() {
                             <div className="flex items-center gap-3 text-indigo-600">
                                 <CheckCircle2 className="w-8 h-8 shrink-0" />
                                 <div>
-                                    <h3 className="text-lg font-bold text-slate-900">Balance Retrieved Successfully</h3>
-                                    <p className="text-xs text-slate-500">{new Date(balanceResult.date).toLocaleString()}</p>
+                                    <h3 className="text-lg font-bold text-white">Balance Retrieved Successfully</h3>
+                                    <p className="text-xs text-slate-400">{new Date(balanceResult.date).toLocaleString()}</p>
                                 </div>
                             </div>
 
-                            <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 space-y-4 text-xs">
-                                <div className="flex justify-between border-b border-slate-200/80 pb-3">
-                                    <span className="text-slate-500">Account Number</span>
-                                    <span className="font-mono font-bold text-slate-800">{balanceResult.account}</span>
+                            <div className="bg-slate-950/70 border border-slate-800 rounded-xl p-6 space-y-4 text-xs">
+                                <div className="flex justify-between border-b border-slate-800 pb-3">
+                                    <span className="text-slate-400">Account Number</span>
+                                    <span className="font-mono font-bold text-slate-200">{balanceResult.account}</span>
                                 </div>
                                 <div className="flex justify-between items-center pt-2">
-                                    <span className="text-slate-600 text-sm font-medium">Available Balance</span>
+                                    <span className="text-slate-300 text-sm font-medium">Available Balance</span>
                                     <span className="text-2xl font-bold text-indigo-600">
                                         ₹{parseFloat(balanceResult.balance).toFixed(2)}
                                     </span>
@@ -197,16 +197,16 @@ export default function CheckBalance() {
                 </div>
 
                 {/* Right Information Panel */}
-                <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-6 space-y-4 text-xs text-slate-600">
-                    <h3 className="font-bold text-slate-900 text-sm flex items-center gap-2">
-                        <Lock className="w-4 h-4 text-slate-700" /> Security Notice
+                <div className="bg-slate-900/70 border border-slate-800/80 rounded-2xl p-6 space-y-4 text-xs text-slate-400">
+                    <h3 className="font-bold text-white text-sm flex items-center gap-2">
+                        <Lock className="w-4 h-4 text-slate-300" /> Security Notice
                     </h3>
                     <ul className="space-y-2.5 list-disc pl-4 leading-relaxed">
                         <li>
-                            <strong className="text-slate-800">Encrypted Validation:</strong> Your account PIN is securely hashed and verified against our database.
+                            <strong className="text-slate-200">Encrypted Validation:</strong> Your account PIN is securely hashed and verified against our database.
                         </li>
                         <li>
-                            <strong className="text-slate-800">Zero-Retention:</strong> Balance details are securely transmitted and never cached on public browsers.
+                            <strong className="text-slate-200">Zero-Retention:</strong> Balance details are securely transmitted and never cached on public browsers.
                         </li>
                     </ul>
                 </div>
@@ -220,22 +220,22 @@ export default function CheckBalance() {
                             initial={{ opacity: 0, scale: 0.9, y: 10 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.9, y: 10 }}
-                            className="bg-white border border-slate-200 w-full max-w-sm rounded-2xl p-6 shadow-2xl relative"
+                            className="bg-slate-900 border border-slate-700 w-full max-w-sm rounded-2xl p-6 shadow-2xl relative text-slate-100"
                         >
                             <button
                                 onClick={() => setIsPinModalOpen(false)}
-                                className="absolute right-4 top-4 text-slate-400 hover:text-slate-600 p-1"
+                                className="absolute right-4 top-4 text-slate-400 hover:text-white p-1"
                             >
                                 <X className="w-5 h-5" />
                             </button>
 
                             <div className="text-center space-y-2 mb-6">
-                                <div className="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-full flex items-center justify-center mx-auto">
+                                <div className="w-12 h-12 bg-indigo-500/10 text-indigo-300 rounded-full flex items-center justify-center mx-auto">
                                     <Lock className="w-6 h-6" />
                                 </div>
-                                <h3 className="text-lg font-bold text-slate-900">Authorize Inquiry</h3>
-                                <p className="text-xs text-slate-500">
-                                    Enter your 4-digit PIN for account <span className="font-mono text-slate-800">{account}</span>.
+                                <h3 className="text-lg font-bold text-white">Authorize Inquiry</h3>
+                                <p className="text-xs text-slate-400">
+                                    Enter your 4-digit PIN for account <span className="font-mono text-slate-100">{account}</span>.
                                 </p>
                             </div>
 
@@ -246,8 +246,8 @@ export default function CheckBalance() {
                                         <div
                                             key={index}
                                             className={`w-10 h-12 border-2 rounded-xl flex items-center justify-center text-lg font-bold transition ${pin[index]
-                                                ? 'border-indigo-600 bg-indigo-50/50 text-indigo-900'
-                                                : 'border-slate-200 bg-slate-50'
+                                                ? 'border-indigo-500 bg-indigo-500/10 text-indigo-200'
+                                                : 'border-slate-700 bg-slate-950'
                                                 }`}
                                         >
                                             {pin[index] ? '•' : ''}
@@ -261,7 +261,7 @@ export default function CheckBalance() {
                                     value={pin}
                                     onChange={(e) => setPin(e.target.value.replace(/\D/g, ''))}
                                     placeholder="Enter 4-digit PIN"
-                                    className="w-full text-center tracking-widest text-lg font-mono py-2 bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
+                                    className="w-full text-center tracking-widest text-lg font-mono py-2 bg-slate-950 text-slate-100 border border-slate-700 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none"
                                     autoFocus
                                 />
 

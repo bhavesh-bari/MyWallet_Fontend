@@ -10,6 +10,7 @@ import {
     ArrowDownLeft,
     ArrowUpRight,
     ArrowRightLeft,
+    House,
     History,
     User,
     LogOut,
@@ -50,6 +51,12 @@ export default function Navbar({
     }, []);
 
     const quickActions = [
+        {
+            id: 'home',
+            label: 'Home',
+            icon: House,
+            href: '/'
+        },
         {
             id: 'deposit',
             label: 'Deposit',
@@ -148,8 +155,8 @@ export default function Navbar({
                                     href={action.href}
                                     onClick={() => handleActionClick(action.id)}
                                     className={`relative flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all duration-200 ${isActive
-                                            ? 'text-white'
-                                            : 'text-slate-400 hover:text-slate-100 hover:bg-slate-800/50'
+                                        ? 'text-white'
+                                        : 'text-slate-400 hover:text-slate-100 hover:bg-slate-800/50'
                                         }`}
                                 >
                                     {isActive && (
@@ -317,8 +324,8 @@ export default function Navbar({
                                         href={action.href}
                                         onClick={() => handleActionClick(action.id)}
                                         className={`flex items-center gap-2.5 p-3 rounded-xl border text-xs font-semibold transition ${isActive
-                                                ? 'bg-indigo-600/20 border-indigo-500/50 text-indigo-300'
-                                                : 'bg-slate-900/60 border-slate-800/80 text-slate-300 hover:border-slate-700'
+                                            ? 'bg-indigo-600/20 border-indigo-500/50 text-indigo-300'
+                                            : 'bg-slate-900/60 border-slate-800/80 text-slate-300 hover:border-slate-700'
                                             }`}
                                     >
                                         <Icon className={`w-4 h-4 ${isActive ? 'text-indigo-400' : 'text-slate-400'}`} />

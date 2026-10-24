@@ -1,10 +1,12 @@
 import React from 'react'
 import Withdraw from '../components/Withdraw';
+import BankingPageLayout from '../components/BankingPageLayout';
+
 function page() {
     return (
-        <div>
+        <BankingPageLayout>
             <Withdraw />
-        </div>
+        </BankingPageLayout>
     )
 }
 

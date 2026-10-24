@@ -1,11 +1,10 @@
 import TransferMoney from "../components/Transfer";
+import BankingPageLayout from "../components/BankingPageLayout";
 
 export default function TransferPage() {
     return (
-        <div className="min-h-screen bg-gray-100 py-12">
-            <div className="max-w-4xl mx-auto">
-                <TransferMoney />
-            </div>
-        </div>
+        <BankingPageLayout>
+            <TransferMoney />
+        </BankingPageLayout>
     );
 }
